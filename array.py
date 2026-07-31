@@ -3,17 +3,7 @@
     {
       "cell_type": "markdown",
       "metadata": {
-        "id": "view-in-github",
-        "colab_type": "text"
-      },
-      "source": [
-        "<a href=\"https://colab.research.google.com/github/gayatriantad90-alt/Gaytariantad/blob/main/array.py\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
-      ]
-    },
-    {
-      "cell_type": "markdown",
-      "metadata": {
-        "id": "RkUXWWUcdVM7"
+        "id": "ms_X4R9Gnun0"
       },
       "source": [
         "# Lecture live chat\n",
@@ -28,106 +18,108 @@
     {
       "cell_type": "code",
       "source": [
-        "list=[1,40,4.6,100]\n",
-        "print(list)\n",
-        "print(list[0:3])\n",
-        "print(list[0:4])\n",
-        "new_list=[90,1,100,45.4]\n",
-        "print(new_list)\n",
-        "new_list.append(12)\n",
-        "print(new_list)\n",
-        "new_list.append(1000)\n",
-        "print(new_list[::])\n",
-        "new_list.pop(3)\n",
-        "print(new_list[::])\n",
-        "new_list.insert(2,3)\n",
-        "print(new_list[::2])\n",
+        "class OneDarray:\n",
+        "  def_init_(self,initial_size=10):\n",
+        "    \"\"\"Initalize 1D array with given size \"\"\"\n",
+        "    self.size=inital_size\n",
+        "    self.array=[none]*self.size\n",
         "\n",
-        "l1=[34,56,4.8,1,0.9]\n",
-        "l2=[34,67,9.5,2]\n",
-        "print(l1+l2)\n",
-        "print(l1+l2+new_list)\n",
-        "print(l2+list)\n",
+        "    def display(self):\n",
+        "        \"\"\"Display the current array elements\"\"\"\n",
+        "        if self.length == 0:\n",
+        "            print(\"Array is empty\")\n",
+        "            return\n",
+        "        print(\"Current Array:\", end=\" \")\n",
+        "        for i in range(self.length):\n",
+        "            print(self.array[i], end=\" \")\n",
+        "        print()\n",
+        "        print(f\"Size: {self.size}, Length: {self.length}\")\n",
         "\n",
-        "fruits = ('apple', 'banana', 'mango', 'date', )\n",
-        "sub_tuple = fruits[1:4]\n",
-        "print(sub_tuple)\n",
+        "    def insert_at_end(self, value):\n",
+        "        \"\"\"Insert element at the end of array\"\"\"\n",
+        "        if self.length >= self.size:\n",
+        "            print(\"Array is full! Cannot insert\")\n",
+        "            return False\n",
         "\n",
-        "data = (10, 20, 30, 40, 50, 60)\n",
-        "custom_slice = slice(1, 5, 2)\n",
-        "print(data[custom_slice])\n",
-        "custom_slice1 = slice(2, 1, 6)\n",
-        "print(data[custom_slice1])\n",
+        "        self.array[self.length] = value\n",
+        "        self.length += 1\n",
+        "        print(f\"Inserted {value} at end\")\n",
+        "        return True\n",
         "\n",
-        "my_dict = {}\n",
-        "my_dict[\"name\"] = \"Gayatri\"\n",
-        "my_dict[\"roll no\"] = 5\n",
-        "my_dict[\"Department\"] = \"AI&DS\"\n",
-        "my_dict[\"Div\"] = 1\n",
-        "print(my_dict)\n",
+        "    def insert_at_position(self, position, value):\n",
+        "        \"\"\"Insert element at specific position (0-based index)\"\"\"\n",
+        "        if position < 0 or position > self.length:\n",
+        "            print(f\"Invalid position! Must be between 0 and {self.length}\")\n",
+        "            return False\n",
         "\n",
-        "\n",
-        "num = 79\n",
-        "if num > 1:\n",
-        "\n",
-        "    for i in range(2, num):\n",
-        "        if (num % i) == 0:\n",
-        "            print(f\"{num} is not a prime number.\")\n",
-        "            print(f\"{i} times {num // i} is {num}.\")\n",
-        "            break\n",
-        "    else:\n",
-        "        print(f\"{num} is a prime number.\")\n",
-        "else:\n",
-        "    print(f\"{num} is not a prime number.\")\n",
+        "        if self.length >= self.size:\n",
+        "            print(\"Array is full! Cannot insert\")\n",
+        "            return False\n",
         "\n",
         "\n",
+        "        for i in range(self.length, position, -1):\n",
+        "            self.array[i] = self.array[i - 1]\n",
         "\n",
-        "def year(y):\n",
-        "   if year%4==0 :\n",
-        "      print(\"leap year:y\")\n",
-        "   else:\n",
-        "      print(\"no a laep year:y\")\n",
-        "y=int(input(\"enter the year\"))"
+        "        self.array[position] = value\n",
+        "        self.length += 1\n",
+        "        print(f\"Inserted {value} at position {position}\")\n",
+        "        return True\n",
+        "\n",
+        "    def delete_at_end(self):\n",
+        "        \"\"\"Delete element from the end\"\"\"\n",
+        "        if self.length == 0:\n",
+        "            print(\"Array is empty! Cannot delete\")\n",
+        "            return None\n",
+        "\n",
+        "        deleted_value = self.array[self.length - 1]\n",
+        "        self.array[self.length - 1] = None\n",
+        "        self.length -= 1\n",
+        "        print(f\"Deleted {deleted_value} from end\")\n",
+        "        return deleted_value\n",
+        "\n",
+        "    def delect_at_position(self,postion):\n",
+        "      \"\"\"delete element at the spesific position (0-based index)\"\"\"\n",
+        "      if self.length==0:\n",
+        "        print(f\"array is emppty! Cannot delect\")\n",
+        "        return None\n",
+        "\n",
+        "        if  position<0 or position >=self.length:\n",
+        "          print(f\"Invalid postion! Must be between 0 and {self. length-1}\")\n",
+        "          delected_value=self.array[position]\n",
+        "          for i in range(positin,self.length-1):\n",
+        "            self.array[i+1]\n",
+        "            self.array[self.length-1]=None\n",
+        "            self.length-= 1\n",
+        "        print(f\"Deleted {deleted_value} from position {position}\")\n",
+        "        return deleted_value\n",
+        "\n",
+        "    def search(self, value):\n",
+        "        \"\"\"Search for an element in the array\"\"\"\n",
+        "        for i in range(self.length):\n",
+        "            if self.array[i] == value:\n",
+        "                print(f\"Found {value} at position {i}\")\n",
+        "                return i\n",
+        "        print(f\"Value {value} not found in array\")\n",
+        "        return -1\n",
+        "\n",
+        "    def search_all_occurrences(self, value):\n",
+        "        \"\"\"Search for all occurrences of an element\"\"\"\n",
+        "        positions = []\n",
+        "        for i in range(self.length):\n",
+        "            if self.array[i] == value:\n",
+        "                positions.append(i)\n",
+        "\n",
+        "        if positions:\n",
+        "            print(f\"Found {value} at positions: {positions}\")\n",
+        "            return positions\n",
+        "        else:\n",
+        "            print(f\"Value {value} not found in array\")\n",
+        "            return []\n",
+        "\n",
+        "\n"
       ],
       "metadata": {
-        "id": "LnBgP7t4dWck",
-        "outputId": "2a46df95-0636-4b75-8b32-6488c0373c4a",
-        "colab": {
-          "base_uri": "https://localhost:8080/"
-        }
-      },
-      "execution_count": null,
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stdout",
-          "text": [
-            "====================\n",
-            "ARRAY OPERATIONS\n",
-            "====================\n",
-            "1. 1D Array Operations\n",
-            "2. 2D Array Operations\n"
-          ]
-        }
-      ]
-    },
-    {
-      "cell_type": "code",
-      "source": [],
-      "metadata": {
-        "id": "1VFDQXmGj92P"
-      },
-      "execution_count": null,
-      "outputs": []
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "from google.colab import drive\n",
-        "drive.mount('/content/drive')"
-      ],
-      "metadata": {
-        "id": "7CjVzDgBiNSz"
+        "id": "ElraJvYsnv33"
       },
       "execution_count": null,
       "outputs": []
@@ -180,7 +172,7 @@
     {
       "cell_type": "markdown",
       "metadata": {
-        "id": "poMjtDvfdVM8"
+        "id": "Z29dLCU6nun1"
       },
       "source": []
     }
@@ -188,8 +180,7 @@
   "metadata": {
     "colab": {
       "name": "Table of contents for collab.research.google.com.ipynb",
-      "provenance": [],
-      "include_colab_link": true
+      "provenance": []
     },
     "kernelspec": {
       "display_name": "Python 3 (ipykernel)",
