@@ -3,6 +3,16 @@
     {
       "cell_type": "markdown",
       "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/gayatriantad90-alt/Gaytariantad/blob/main/array.py\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
         "id": "ms_X4R9Gnun0"
       },
       "source": [
@@ -125,6 +135,13 @@
       "outputs": []
     },
     {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "ULsppl_fzeZ_"
+      }
+    },
+    {
       "cell_type": "code",
       "source": [],
       "metadata": {
@@ -189,7 +206,8 @@
   "metadata": {
     "colab": {
       "name": "Table of contents for collab.research.google.com.ipynb",
-      "provenance": []
+      "provenance": [],
+      "include_colab_link": true
     },
     "kernelspec": {
       "display_name": "Python 3 (ipykernel)",
